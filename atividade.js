@@ -8,14 +8,15 @@ const livros = require('./biblioteca');
 // e retorne um novo array com todos os livros desse gênero.
 // ------------------------------------------------------------------------
 
-// Sua vez
+function encontrarLivrosPorGenero(genero) {
+    return livros.filter(function(livro) {return livro.genero === genero});
+}
 
 // Teste da Atividade 1
 console.log('--- Atividade 1: Livros de Ficção Científica (Função Tradicional) ---');
-// const livrosDeFiccao = encontrarLivrosPorGenero('Ficção Científica');
-// console.log(livrosDeFiccao);
 
-
+ const livrosDeFiccao = encontrarLivrosPorGenero('Ficção Científica');
+ console.log(livrosDeFiccao);
 // ------------------------------------------------------------------------
 // ATIVIDADE 2: Refatorando com Arrow Function
 //
@@ -23,13 +24,16 @@ console.log('--- Atividade 1: Livros de Ficção Científica (Função Tradicion
 // ------------------------------------------------------------------------
 
 
-// Sua vez
+function encontrarLivrosPorGeneroArrow(genero){
+  const livrosFiltrados = livros.filter(livro => livro.genero === genero);
+  return livrosFiltrados;
+}
 
 
 // Teste da Atividade 2
 console.log('\n--- Atividade 2: Livros de Distopia (Arrow Function) ---');
-// const livrosDeDistopia = encontrarLivrosPorGeneroArrow('Distopia');
-// console.log(livrosDeDistopia);
+const livrosDeDistopia = encontrarLivrosPorGeneroArrow('Distopia');
+console.log(livrosDeDistopia);
 
 
 // ------------------------------------------------------------------------
@@ -39,14 +43,14 @@ console.log('\n--- Atividade 2: Livros de Distopia (Arrow Function) ---');
 // de todos os livros da biblioteca.
 // ------------------------------------------------------------------------
 
-
-// Sua vez
-
+const obterApenasTitulos = () => {
+  return livros.map(livro => livro.titulo);
+};
 
 // Teste da Atividade 3
 console.log('\n--- Atividade 3: Lista de todos os títulos ---');
-// const todosOsTitulos = obterApenasTitulos();
-// console.log(todosOsTitulos);
+const todosOsTitulos = obterApenasTitulos();
+console.log(todosOsTitulos);
 
 
 // ------------------------------------------------------------------------
@@ -59,13 +63,15 @@ console.log('\n--- Atividade 3: Lista de todos os títulos ---');
 // ------------------------------------------------------------------------
 
 
-// Sua vez
+const livrosDeAutorAposAno = (autor, ano) => {
+  return livros.filter(livro => livro.autor === autor && livro.anoPublicacao > ano);
+};
 
 
 // Teste da Atividade 4
 console.log('\n--- Atividade 4: Livros de J.R.R. Tolkien publicados após 1950 ---');
-// const livrosTolkienPos1950 = livrosDeAutorAposAno('J.R.R. Tolkien', 1950);
-// console.log(livrosTolkienPos1950);
+const livrosTolkienPos1950 = livrosDeAutorAposAno('J.R.R. Tolkien', 1950);
+console.log(livrosTolkienPos1950);
 
 
 
